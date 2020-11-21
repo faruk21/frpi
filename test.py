@@ -30,7 +30,7 @@ def update_control():
         rm_vrsn = rm_file.read()                      # remote_version.txt okundu rm_vrsn ye kaydedildi.
     print('---------------------------------------------------------------')
     print(f'Uzak depo version: {rm_vrsn}')
-    #os.system('rm remote_version.txt')
+    os.system('rm remote_version.txt')
     '''
     old = open('local_version.txt', 'r')
     eski_vers = old.read()
