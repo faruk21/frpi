@@ -10,12 +10,9 @@ def old_vers_r():
     old = open('local_version.txt', 'r')
     eski_vers = old.read()
     old.close()
-
-    '''
     print('-----------------------------------------------------------------')
     print(f'Eski version: {eski_vers}')
     print('-----------------------------------------------------------------')
-    '''
 
 def old_vers_w(newv):
     localv = open('local_version.txt', 'w')           # local_version.txt dosyası yazma modunda açıldı.
@@ -30,6 +27,7 @@ def update_control():
         rm_vrsn = rm_file.read()                      # remote_version.txt okundu rm_vrsn ye kaydedildi.
     print('---------------------------------------------------------------')
     print(f'Uzak depo version: {rm_vrsn}')
+<<<<<<< HEAD
     os.system('rm remote_version.txt')
     '''
     old = open('local_version.txt', 'r')
@@ -37,14 +35,12 @@ def update_control():
     old.close()
     print(f'Local version: {eski_vers}')                
     old_vers_w(rm_vrsn)                               # rm_vrsn old_vers'e gönderildi.
+=======
+>>>>>>> c32c1d4d9673613114411cd4c1d51c8f8b3ff551
     os.system('rm remote_version.txt')                # remote_version.txt'silindi.
+    print('remote_version.txt silindi')
     print('---------------------------------------------------------------')  
-    '''  
 
-'''
-    os.system('git fetch')
-    os.system('git pull')
-    my_file = open('version.txt', 'r')
 
 def hesap():
     sonuc = time.time() - starttime
@@ -55,7 +51,6 @@ def hesap():
         print('işlkjhgf')
         sonuc = time.time()
         güncelleme(old)
-'''
 
 while True:
     print(mesaj)
