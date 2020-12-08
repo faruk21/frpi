@@ -10,6 +10,7 @@ while True:
         os.system('git status')
         print('---------------------------------------------------------------')
         os.system('git add .')
+        os.system('git commit -m "test.txt düzenlendi"')
         print('Dosyalar yerel depoya eklendi.')
         print('---------------------------------------------------------------')
         os.system('git status')
