@@ -2,3 +2,34 @@ Kuşum benim 22:30
 Ya ben bir şey denicem 22:34
 Bu değişiklik github üzerinden yapılmıştır. 22:48
 test 23:19
+
+
+def test():
+        '''
+        girdi = input(mesaj)
+
+        if girdi == 'e':
+            print('------------------- Güncelleme başlatılıyor -------------------')
+            time.sleep(1)
+            os.system('git status')
+            print('---------------------------------------------------------------')
+            os.system('git add .')
+            os.system('git pull')
+            print('---------------------------------------------------------------')
+
+        elif girdi == 'h':
+            print('Güncelleme iptal edildi...')
+            print('---------------------------------------------------------------')
+            time.sleep(1)
+
+        elif girdi == 'c':
+            print('Çıkış yapılıyor...')
+            print('---------------------------------------------------------------')
+            time.sleep(1)
+            break
+
+        else:
+            print('Lütfen geçerli bir komut girin.')
+            print('---------------------------------------------------------------')
+            time.sleep(1)
+        '''
