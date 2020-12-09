@@ -10,6 +10,7 @@ Komut:
 '''
 print('güncelleme kontrol dosyası alınıyor')
 os.system('git fetch')
+os.system('git pull')
 
 #my_file = open('version.txt', 'r')
 #version = my_file.read()
