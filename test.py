@@ -8,15 +8,10 @@ Güncelleme almak istiyor musunuz? e/h:
 Komut: 
 
 '''
-while True:
 
+os.system('git fetch')
+my_file = open('version.txt', 'r')
+version = my_file.read()
 
-#os.system('git')
-
-    def test():
-        os.system('git fetch')
-        my_file = open('version.txt', 'r')
-        version = my_file.read()
-
-        print(version)
+print(version)
 
