@@ -1,7 +1,7 @@
 Kuşum benim 22:30
 Ya ben bir şey denicem 22:34
 Bu değişiklik github üzerinden yapılmıştır. 22:48
-test 23:19
+test 20:40
 
 
 def test():
