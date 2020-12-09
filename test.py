@@ -8,10 +8,11 @@ Güncelleme almak istiyor musunuz? e/h:
 Komut: 
 
 '''
-
+print('güncelleme kontrol dosyası alınıyor')
 os.system('git fetch')
-my_file = open('version.txt', 'r')
-version = my_file.read()
 
-print(version)
+#my_file = open('version.txt', 'r')
+#version = my_file.read()
+
+#print(version)
 
