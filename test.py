@@ -30,6 +30,7 @@ def update_control():
     
     old_vers_w(rm_vrsn)                               # rm_vrsn old_vers'e gönderildi.
     os.system('rm remote_version.txt')                # remote_version.txt'silindi.
+    print('remote_version.txt silindi')
     print('---------------------------------------------------------------')  
 
 
