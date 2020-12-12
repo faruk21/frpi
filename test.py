@@ -36,9 +36,9 @@ def update_control():
     print(f'serverdaki sürüm: {remoteread}')
     print('---------------------------------------------------------------')
     print('Local sürüm güncelleniyor')
-    #localv_w(remoteread)
+    localv_w(remoteread)
     print(f'Yeni local sürüm: {remoteread}')
-    #os.system('rm remote_version.txt')                # remote_version.txt'silindi.
+    os.system('rm remote_version.txt')                # remote_version.txt'silindi.
     print('remote_version.txt silindi')
     print('---------------------------------------------------------------')  
 
