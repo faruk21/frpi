@@ -27,6 +27,12 @@ def update_control():
     print('-----------------------------------------------------------------')
     os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.txt')
     print('-----------------------------------------------------------------')
+    try: 
+        f = open('local_version.txt', 'r')
+    except FileNotFoundError:
+        print('Dosya indirilemedi')
+        break
+
     print('Güncelleme kontrol dosyası indirildi.')
     print('Güncelleme kontrol dosyası okunuyor.')
     print('---------------------------------------------------------------')
