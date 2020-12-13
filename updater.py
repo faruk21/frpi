@@ -34,6 +34,7 @@ def local_json_w():
         #print(local)
         if server == local:
             print('Program zaten güncel')
+            os.system('rm remote_version.json')
             break
         else:
             with open('remote_version.json', 'r') as f:
@@ -43,25 +44,19 @@ def local_json_w():
 
             with open('local_version.json', 'w') as f:
                 json.dump(remote_v, f, indent=4)
-            
-        '''    
-            localv = open('local_version.txt', 'w')           # local_version.txt dosyası yazma modunda açıldı.
-            localv.write(server)
-            json.dump(cacık, f2, indent=4)
 
-            float_server = float(server)
-            float_local = float(local)
-            if float_server == float_local:
-                print(f'Güncelleme işlemi başrılı, yeni local sürüm: {local} ')
-                os.system('rm remote_version.txt')
+            local = local_json_read()
+            if server == local:
+                print(f'Güncelleme işlemi başarılı, yeni local sürüm: {local} ')
+                os.system('rm remote_version.json')
                 break
-            
-    '''
+
 
 def filecontrol():
     print(mesaj4)
     for x in range(3):
         try:
+            os.system('rm remote_version.json')
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json')
             with open('remote_version.json', 'r') as f:
                 local_v = json.load(f)
@@ -111,19 +106,8 @@ def update_control():
         #print('remote_version.txt silindi')
         print('---------------------------------------------------------------') 
 
-def hesap():
-    sonuc = time.time() - starttime
-    print(sonuc)
-    #print('hesap çalışıyor')
-
-    if sonuc > 5:
-        print('işlkjhgf')
-        sonuc = time.time()
-        güncelleme(old)
-
 while True:
-    #os.system('rm remote_version.txt')
-    #print(mesaj)
+    print(mesaj)
     update_control()
     break
 
