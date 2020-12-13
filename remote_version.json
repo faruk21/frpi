@@ -1,12 +1,3 @@
-{ 
-    "versions":[
-        {
-            "tarih":"12 Ar",
-            "surum": 0.1
-        },
-        {
-            "tarih":"13 Ar",
-            "surum": 0.4
-        }
-    ]
+{
+    "versions": [{"day": 13 , "month": "Aralık", "year": 2020, "version_number": 2.1}]
 }
