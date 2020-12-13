@@ -26,20 +26,28 @@ mesaj4 = '''
 '''
 def local_json_w():
     print('Local sürüm kontrol ediliyor')
+    
     for x in range(3):
         server = remote_json_read()
         local = local_json_read()
-        print(server)
-        print(local)
-
+        #print(server)
+        #print(local)
         if server == local:
             print('Program zaten güncel')
             break
         else:
-            print('güncel değil')
-            '''
+            with open('remote_version.json', 'r') as f:
+                remote_v = json.load(f)
+
+            print('Local sürüm güncelleniyor...')
+
+            with open('local_version.json', 'w') as f:
+                json.dump(remote_v, f, indent=4)
+            
+        '''    
             localv = open('local_version.txt', 'w')           # local_version.txt dosyası yazma modunda açıldı.
             localv.write(server)
+            json.dump(cacık, f2, indent=4)
 
             float_server = float(server)
             float_local = float(local)
@@ -47,14 +55,16 @@ def local_json_w():
                 print(f'Güncelleme işlemi başrılı, yeni local sürüm: {local} ')
                 os.system('rm remote_version.txt')
                 break
-            '''
+            
+    '''
 
 def filecontrol():
     print(mesaj4)
     for x in range(3):
         try:
-            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.txt')
-            f = open('remote_version.txt')
+            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json')
+            with open('remote_version.json', 'r') as f:
+                local_v = json.load(f)
             sonuc = True
             print(mesaj3)
             break
@@ -67,21 +77,22 @@ def filecontrol():
 
 def local_json_read():
     with open('local_version.json', 'r') as f:
-        remote_v = json.load(f)
-        veriler = remote_v['versions']
-
+        local_v = json.load(f)
+        veriler = local_v['versions']
+        
         l_version = veriler[0]['version_number']
         gün = veriler[0]['day']
         ay = veriler[0]['month']
         yıl = veriler[0]['year']
         #print(gün,ay,yıl)
         return l_version
+        
 
 
 def remote_json_read():
     with open('remote_version.json', 'r') as f:
-        local_v = json.load(f)
-        veriler = local_v['versions']
+        remote_v = json.load(f)
+        veriler = remote_v['versions']
         
         r_version = veriler[0]['version_number']
         r_gün = veriler[0]['day']
@@ -96,7 +107,7 @@ def update_control():
     control = filecontrol()
     if control == True:
         print('---------------------------------------------------------------')
-        localv_w()
+        local_json_w()
         #print('remote_version.txt silindi')
         print('---------------------------------------------------------------') 
 
@@ -113,8 +124,6 @@ def hesap():
 while True:
     #os.system('rm remote_version.txt')
     #print(mesaj)
-    #update_control()
-    local_json_w()
-
+    update_control()
     break
 

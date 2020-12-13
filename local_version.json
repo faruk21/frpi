@@ -1,3 +1,10 @@
 {
-    "versions": [{"day": 13 , "month": "Aralık", "year": 2021, "version_number": 0.1}]
+    "versions": [
+        {
+            "day": 13,
+            "month": "Aral\u0131k",
+            "year": 2020,
+            "version_number": 2.1
+        }
+    ]
 }
