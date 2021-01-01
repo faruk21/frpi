@@ -1,0 +1,11 @@
+--2020-12-30 23:05:54--  https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.16.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.16.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 164 [text/plain]
+Saving to: ‘remote_version.json.1’
+
+     0K                                                       100% 3.49M=0s
+
+2020-12-31 00:24:17 (3.49 MB/s) - ‘remote_version.json.1’ saved [164/164]
+
