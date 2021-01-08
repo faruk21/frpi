@@ -61,7 +61,7 @@ def update():
 
             l_version = l_file_cntrl()
 
-            if r_version > l_version:
+            if round(r_version) > l_version:
                 print(f'güncelleme mevcut local: {l_version} remote: {r_version}')
                 with open('remote_version.json', 'r') as f, open('local_version.json', 'w') as f2:
                     veri = json.load(f)
