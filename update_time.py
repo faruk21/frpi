@@ -9,4 +9,6 @@ while True:
    try:
       os.chdir("frpi")
       os.system('python3 updater.py')
-      
+
+   except FileExistsError:
+      print("error")
