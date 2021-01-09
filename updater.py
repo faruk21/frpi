@@ -81,9 +81,7 @@ def update():
 # pull a benzer şekilde fetch  remote daki kodların kopyasını local e oluşturur, ancak  merge yapmaz.
 # 18:10
 
-                    os.system('git pull')
-                    os.system('git add .')
-                    os.system(f"git commit -m 'version {l_version} ya güncellendi'" )
+                os.system('git pull')
                 print('---------------------------------------------------')
                 print(f"Güncelleme tamamlandı, güncel version: {l_version}")
 
