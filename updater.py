@@ -61,8 +61,8 @@ def update():
 
             l_version = l_file_cntrl()
 
-            if round(r_version) > l_version:
-                print(f'güncelleme mevcut local: {l_version} remote: {r_version}')
+            if round(r_version,1) > l_version:
+                print(f'güncelleme mevcut local: {l_version} remote: {round(r_version,1)}')
                 with open('remote_version.json', 'r') as f, open('local_version.json', 'w') as f2:
                     veri = json.load(f)
                     json.dump(veri, f2, indent=4)
@@ -106,5 +106,6 @@ def l_file_cntrl():
 
 #-------------------------------------------------------------------------------------------------------
 bir_dakika = 60
-t = perpetualTimer(bir_dakika,update)
+saniye = 10
+t = perpetualTimer(saniye,update)
 t.start()
