@@ -79,6 +79,7 @@ def update():
 # git pull origin master
 # remote dan kodlarınızı local ortamınıza çekersiniz, default kendiliğinden merge işlemini yapar.
 # pull a benzer şekilde fetch  remote daki kodların kopyasını local e oluşturur, ancak  merge yapmaz.
+# 18:10
 
                     os.system('git pull')
                     os.system('git add .')
