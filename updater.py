@@ -110,5 +110,5 @@ def l_file_cntrl():
 #-------------------------------------------------------------------------------------------------------
 bir_dakika = 60
 saniye = 10
-t = perpetualTimer(saniye,update)
+t = perpetualTimer(bir_dakika,update)
 t.start()
