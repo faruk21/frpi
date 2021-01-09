@@ -59,7 +59,12 @@ def update():
             #r_yıl = veriler[0]['year']
             #print(mesaj3)   # Uzak depoya  başarıyla erişildi Güncelleme kontrol dosyası indirildi.
 
-            l_version = l_file_cntrl()
+            l_file_cntrl()
+
+            with open('local_version.json', 'r') as f:
+                local_v = json.load(f)
+                l_veriler = local_v['versions']
+                l_version = l_veriler[0]['version_number']
 
             if round(r_version,1) > l_version:
                 print(f'güncelleme mevcut local: {l_version} remote: {round(r_version,1)}')
@@ -90,12 +95,10 @@ def l_file_cntrl():
     try:
         with open('local_version.json', 'r') as f:
             local_v = json.load(f)
-            v_veriler = local_v['versions']
-            l_version = v_veriler[0]['version_number']
-            #print(f"Local dosya başarıyla okundu {l_version}")
-            time.sleep(2)
-        return l_version
-
+            l_veriler = local_v['versions']
+            l_version = l_veriler[0]['version_number']
+            print(f'Local dosya başarıyla okundu: {l_version}')
+        
     except FileNotFoundError:
         #print('-----------------------------------------------------------------')
         #print('local file dosyası bulunamadı, yeniden oluşturuluyor...')
