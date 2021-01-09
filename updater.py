@@ -74,8 +74,17 @@ def update():
                 with open ('local_version.json', 'r') as f2:
                     local_v = json.load(f2)
                     l_veriler = local_v['versions']
-                    l_versions = l_veriler[0]['version_number']
-                print(f"Güncelleme tamamlandı, güncel version: {l_versions}")
+                    l_version = l_veriler[0]['version_number']
+
+# git pull origin master
+# remote dan kodlarınızı local ortamınıza çekersiniz, default kendiliğinden merge işlemini yapar.
+# pull a benzer şekilde fetch  remote daki kodların kopyasını local e oluşturur, ancak  merge yapmaz.
+
+                    os.system('git pull')
+                    os.system('git add .')
+                    os.system(f"git commit -m 'version {l_version} ya güncellendi'" )
+                print('---------------------------------------------------')
+                print(f"Güncelleme tamamlandı, güncel version: {l_version}")
 
             else:
                 print("Program zaten güncel")
@@ -106,6 +115,8 @@ def l_file_cntrl():
             veri = json.load(f)
             json.dump(veri, f2, indent=4)
             print("Locaf file tekrar oluşturuldu")
+
+
 
 #-------------------------------------------------------------------------------------------------------
 bir_dakika = 60
