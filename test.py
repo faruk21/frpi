@@ -18,11 +18,6 @@ path2 = './Updater/frpi/remote_version.json'
 test = os.path.exists(path2) 
 print(test)
 
-os.system('ls')
-os.chdir('./Updater/frpi/')
-os.system('ls')
-os.system('cd')
-os.system('ls')
 
 #os.system('rm remote_version.json')
 os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json -P /root/Updater/')
