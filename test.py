@@ -2,22 +2,9 @@ import os
 import json
 import os.path
 
-path = './Updater/frpi/'
-  
-# Check whether the specified 
-# path exists or not 
-print(os.path.exists(path))
-#isExist = os.path.exists(path)
-#print(isExist) 
+local_dosya = "remote_version.json"
+yol = "/root/Updater/version"
 
-# Specify path 
-path2 = './Updater/frpi/remote_version.json'
-  
-# Check whether the specified 
-# path exists or not 
-test = os.path.exists(path2) 
-print(test)
-
-
-#os.system('rm remote_version.json')
-os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json -P /root/Updater/')
+path = os.path.join(yol, local_dosya)
+os.remove(path)
+#os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json -P /root/Updater/version/')
