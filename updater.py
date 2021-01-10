@@ -51,7 +51,7 @@ def update():
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
             #os.chdir("frpi")    #frpi dizinine geçildi.
-            os.remove(path)
+            #os.remove(path)
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json -P /root/Updater/version/')
             with open('remote_version.json', 'r') as f:
                 remote_v = json.load(f)
