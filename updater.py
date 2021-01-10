@@ -48,8 +48,8 @@ yol = "./Updater/frpi/version"
 git_yolu = "/Updater/frpi"
 r_path = os.path.join(yol, remote_file)
 l_path = os.path.join(yol, local_file)
-git_add = os.path.join(git_yolu, 'add .')
-git_commit = os.path.join(git_yolu, "commit -m 'a' ")
+git_add = os.path.join(git_yolu, 'git add .')
+git_commit = os.path.join(git_yolu, "git commit -m 'a' ")
 git_pull = os.path.join(git_yolu, 'git pull --no-edit')
 
 def update():
