@@ -50,7 +50,9 @@ def update():
     print(mesaj4)
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
+            print("silme deneniyor")
             os.remove(path)
+            print("silindi")
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P path')
             
             with open('path', 'r') as f:
