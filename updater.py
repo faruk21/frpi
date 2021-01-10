@@ -1,5 +1,5 @@
 from threading import Timer,Thread,Event
-import os
+import os, os.path
 import time, datetime
 import json
 
@@ -42,14 +42,17 @@ class perpetualTimer():
    def cancel(self):
       self.thread.cancel()
 
+remote_file = "remote_version.json"
+yol = "/root/Updater/version"
+path = os.path.join(yol, remote_file)
+
 def update():
     print(mesaj4)
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
             #os.chdir("frpi")    #frpi dizinine geçildi.
-            os.system('rm remote_version.json')    # remote_version.json var ise silindi.
-            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json')   # remote_version.json indirilmesi deneniyor.
-
+            os.remove(path)
+            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/remote_version.json -P /root/Updater/version/')
             with open('remote_version.json', 'r') as f:
                 remote_v = json.load(f)
                 r_veriler = remote_v['versions']
@@ -120,7 +123,7 @@ def l_file_cntrl():
 #-------------------------------------------------------------------------------------------------------
 bir_dakika = 60
 saniye = 10
-t = perpetualTimer(bir_dakika,update)
+t = perpetualTimer(saniye,update)
 print(mesaj)
 t.start()
 
