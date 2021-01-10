@@ -43,20 +43,22 @@ class perpetualTimer():
       self.thread.cancel()
 
 remote_file = "remote_version.json"
+local_file = "local_version.json"
 yol = "./Updater/frpi/version"
-path = os.path.join(yol, remote_file)
+r_path = os.path.join(yol, remote_file)
+l_path = os.path.join(yol, local_file)
 
 def update():
     print(mesaj4)
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
             print("silme deneniyor")
-            os.remove("Updater/frpi/version/remote_version.json")
+            os.remove(r_path)
             os.system("ls")
             print("silindi")
-            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P path')
-
-            with open('path', 'r') as f:
+            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P ./Updater/frpi/version/')
+            
+            with open(r_path, 'r') as f:
                 remote_v = json.load(f)
                 r_veriler = remote_v['versions']
                 r_version = r_veriler[0]['version_number']
@@ -67,17 +69,17 @@ def update():
 
             l_file_cntrl()
 
-            with open('path', 'r') as f:
+            with open(l_path, 'r') as f:
                 local_v = json.load(f)
                 l_veriler = local_v['versions']
                 l_version = l_veriler[0]['version_number']
 
             if round(r_version,1) > l_version:
                 print(f'güncelleme mevcut local: {l_version} remote: {round(r_version,1)}')
-                with open('remote_version.json', 'r') as f, open('local_version.json', 'w') as f2:
+                with open(r_path, 'r') as f, open(l_path, 'w') as f2:
                     veri = json.load(f)
                     json.dump(veri, f2, indent=4)
-                with open ('/root/Updater/frpi/version/local_version.json', 'r') as f2:
+                with open (l_path, 'r') as f2:
                     local_v = json.load(f2)
                     l_veriler = local_v['versions']
                     l_version = l_veriler[0]['version_number']
@@ -107,7 +109,7 @@ def l_file_cntrl():
     print('Lokal dosya kontrol ediliyor...')
     print('-----------------------------------------------------------------')
     try:
-        with open('/root/Updater/frpi/version/local_version.json', 'r') as f:
+        with open(l_path, 'r') as f:
             local_v = json.load(f)
             l_veriler = local_v['versions']
             l_version = l_veriler[0]['version_number']
@@ -116,7 +118,7 @@ def l_file_cntrl():
     except FileNotFoundError:
         #print('-----------------------------------------------------------------')
         #print('local file dosyası bulunamadı, yeniden oluşturuluyor...')
-        with open('/root/Updater/frpi/version/remote_version.json', 'r') as f, open('/root/Updater/frpi/version/local_version.json', 'w') as f2:
+        with open(r_path, 'r') as f, open(l_path, 'w') as f2:
             veri = json.load(f)
             json.dump(veri, f2, indent=4)
             print("Locaf file tekrar oluşturuldu")
