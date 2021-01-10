@@ -51,7 +51,7 @@ def update():
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
             print("silme deneniyor")
-            #os.remove("/Updater/frpi/version/remote_version.json")
+            os.remove("~/Updater/frpi/version/remote_version.json")
             os.system("ls")
             print("silindi")
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P path')
