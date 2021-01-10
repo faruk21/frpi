@@ -12,7 +12,7 @@ mesaj2 = '''
 -------------------------------------------------------------------------
 !!! Uzak depoya erişilemiyor lütfen internet bağlantınızı kontrol edin !!!
 -------------------------------------------------------------------------
-''' 
+'''
 mesaj3 = '''
 -------------------------------------------------------------------------
                   Uzak depoya  başarıyla erişildi
@@ -55,7 +55,7 @@ def update():
             os.system("ls")
             print("silindi")
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P path')
-            
+
             with open('path', 'r') as f:
                 remote_v = json.load(f)
                 r_veriler = remote_v['versions']
@@ -63,9 +63,8 @@ def update():
             #r_gün = veriler[0]['day']
             #r_ay = veriler[0]['month']
             #r_yıl = veriler[0]['year']
-            #print(mesaj3)   # Uzak depoya  başarıyla erişildi Güncelleme kontrol dosyası indirildi.
-            
-            
+            #print(mesaj3)   # Uzak depoya  başarıyla erişildi Güncelleme kontrol dosyası indirildi
+
             l_file_cntrl()
 
             with open('path', 'r') as f:
