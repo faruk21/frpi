@@ -43,7 +43,7 @@ class perpetualTimer():
       self.thread.cancel()
 
 remote_file = "remote_version.json"
-yol = "/Updater/frpi/version"
+yol = "./Updater/frpi/version"
 path = os.path.join(yol, remote_file)
 
 def update():
