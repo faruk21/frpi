@@ -123,3 +123,5 @@ saniye = 10
 t = perpetualTimer(bir_dakika,update)
 print(mesaj)
 t.start()
+
+#
