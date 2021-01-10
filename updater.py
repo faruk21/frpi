@@ -52,6 +52,7 @@ def update():
         try:
             print("silme deneniyor")
             os.remove(path)
+            os.system("ls")
             print("silindi")
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P path')
             
