@@ -43,7 +43,7 @@ class perpetualTimer():
       self.thread.cancel()
 
 remote_file = "remote_version.json"
-yol = "/root/Updater/frpi/version"
+yol = "/Updater/frpi/version"
 path = os.path.join(yol, remote_file)
 
 def update():
@@ -51,9 +51,9 @@ def update():
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
             os.remove(path)
-            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P /root/Updater/frpi/version/')
+            os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P path')
             
-            with open('/root/Updater/frpi/version/remote_version.json', 'r') as f:
+            with open('path', 'r') as f:
                 remote_v = json.load(f)
                 r_veriler = remote_v['versions']
                 r_version = r_veriler[0]['version_number']
@@ -65,7 +65,7 @@ def update():
             
             l_file_cntrl()
 
-            with open('/root/Updater/frpi/version/local_version.json', 'r') as f:
+            with open('path', 'r') as f:
                 local_v = json.load(f)
                 l_veriler = local_v['versions']
                 l_version = l_veriler[0]['version_number']
