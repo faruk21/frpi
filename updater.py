@@ -45,8 +45,12 @@ class perpetualTimer():
 remote_file = "remote_version.json"
 local_file = "local_version.json"
 yol = "./Updater/frpi/version"
+git_yolu = "/Updater/frpi"
 r_path = os.path.join(yol, remote_file)
 l_path = os.path.join(yol, local_file)
+git_add = os.path.join(git_yolu, 'add .')
+git_commit = os.path.join(git_yolu, "commit -m 'a' ")
+git_pull = os.path.join(git_yolu, 'git pull --no-edit')
 
 def update():
     print(mesaj4)
@@ -88,9 +92,9 @@ def update():
 # remote dan kodlarınızı local ortamınıza çekersiniz, default kendiliğinden merge işlemini yapar.
 # pull a benzer şekilde fetch  remote daki kodların kopyasını local e oluşturur, ancak  merge yapmaz.
 # 18:10
-                os.system('git add .')
-                os.system("git commit -m 'a' ")
-                os.system('git pull --no-edit')
+                os.system(git_add)
+                os.system(git_commit)
+                os.system(git_pull)
                 print('---------------------------------------------------')
                 print(f"Güncelleme tamamlandı, güncel version: {l_version}")
 
