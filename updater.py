@@ -164,8 +164,8 @@ def update():
     indirme()
 
 
-bir_dakika = 60
+bir_dakika = 60*10
 saniye = 2
-t = perpetualTimer(saniye,update)
+t = perpetualTimer(bir_dakika,update)
 print(mesaj)
 t.start()
