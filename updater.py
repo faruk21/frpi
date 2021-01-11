@@ -47,7 +47,7 @@ class perpetualTimer():
 
 remote_file = "remote_version.json"
 local_file = "local_version.json"
-yol = "./Updater/frpi/version"
+yol = "./storage/shared/Python//Updater/frpi/version"
 git_yolu = "/Updater/frpi"
 r_path = os.path.join(yol, remote_file)
 l_path = os.path.join(yol, local_file)
@@ -55,14 +55,19 @@ git_add = 'git add .'
 git_commit = "git commit -m 'a' "
 git_pull = 'git pull --no-edit'
 
+remote_yolu = "./storage/shared/Python/Updater/frpi/version/remote_version.json"
+
 #os.path.exists('/home/istihza/Desktop/falanca.txt')
 
 def update():
     print(mesaj4)
     for x in range(1):           # Bu işlemi 3 kez dene.
+        if os.path.exists(remote_yolu):
+            #os.remove(r_path)
+            print("dosya silindi")
         try:
-            os.remove(r_path)
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P ./Updater/frpi/version/')
+            os.system('cd')
             
             with open(r_path, 'r') as f:
                 remote_v = json.load(f)
@@ -138,7 +143,7 @@ def l_file_cntrl():
 #-------------------------------------------------------------------------------------------------------
 bir_dakika = 60
 saniye = 10
-t = perpetualTimer(bir_dakika,update)
+t = perpetualTimer(saniye,update)
 print(mesaj)
 t.start()
 
