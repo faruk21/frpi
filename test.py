@@ -1,6 +1,7 @@
 import os
 import json
 import os.path
+import time
 '''
 print(os.path.exists("/root/Updater/frpi/version/remote_version.json"))
 
@@ -25,4 +26,5 @@ os.system(git_commit)
 os.system(git_push)
 #os.chdir('./storage/shared/Python/')
 os.system('cd')
+time.sleep(0.5)
 os.system('ls')
