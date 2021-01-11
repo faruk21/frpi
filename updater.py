@@ -126,13 +126,13 @@ def file_rw():
                 print('-----------------------------------------------------------------')
                 print(f'Güncelleme tamamlandı! version: {l_version}')
                 print('-----------------------------------------------------------------')
-                input('bekle')
+                #input('bekle')
 
             else:
                 print('-----------------------------------------------------------------')
                 print(f'Program güncel! version: {l_version}')
                 print('-----------------------------------------------------------------')
-                input('bekle')
+                #input('bekle')
     
     else:
         print('remote file dosyası bulunamadı.')
