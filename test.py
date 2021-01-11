@@ -18,8 +18,10 @@ git_commit = "git commit -m 'a' "
 git_pull = 'git pull --no-edit'
 git_push = 'git push'
 
+os.system('ls')
 os.chdir('./storage/shared/Python/Updater/frpi')
 os.system(git_add)
 os.system(git_commit)
 os.system(git_push)
-os.chdir('~/storage/shared/')
+os.chdir('./storage/shared/')
+os.system('ls')
