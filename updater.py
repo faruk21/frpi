@@ -24,6 +24,7 @@ mesaj4 = '''
                   Uzak depoya erişim test ediliyor...
 -------------------------------------------------------------------------
 '''
+#------------------- Zamanlayıcı ------------------------
 class perpetualTimer():
 
    def __init__(self,t,hFunction):
@@ -41,6 +42,8 @@ class perpetualTimer():
 
    def cancel(self):
       self.thread.cancel()
+      
+#-------------------------------------------------------
 
 remote_file = "remote_version.json"
 local_file = "local_version.json"
@@ -48,18 +51,16 @@ yol = "./Updater/frpi/version"
 git_yolu = "/Updater/frpi"
 r_path = os.path.join(yol, remote_file)
 l_path = os.path.join(yol, local_file)
-git_add = os.path.join(git_yolu, 'git add .')
-git_commit = os.path.join(git_yolu, "git commit -m 'a' ")
-git_pull = os.path.join(git_yolu, 'git pull --no-edit')
+git_add = 'git add .'
+git_commit = "git commit -m 'a' "
+git_pull = 'git pull --no-edit'
+
+#os.path.exists('/home/istihza/Desktop/falanca.txt')
 
 def update():
     print(mesaj4)
     for x in range(1):           # Bu işlemi 3 kez dene.
         try:
-            print("silme deneniyor")
-            os.remove(r_path)
-            os.system("ls")
-            print("silindi")
             os.system('wget https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P ./Updater/frpi/version/')
             
             with open(r_path, 'r') as f:
@@ -92,9 +93,11 @@ def update():
 # remote dan kodlarınızı local ortamınıza çekersiniz, default kendiliğinden merge işlemini yapar.
 # pull a benzer şekilde fetch  remote daki kodların kopyasını local e oluşturur, ancak  merge yapmaz.
 # 18:10
+                os.chdir('./Updater/frpi')
                 os.system(git_add)
                 os.system(git_commit)
                 os.system(git_pull)
+                os.chdir('~/storage/shared/')
                 print('---------------------------------------------------')
                 print(f"Güncelleme tamamlandı, güncel version: {l_version}")
 
