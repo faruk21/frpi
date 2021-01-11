@@ -3,8 +3,11 @@ import json
 import os.path
 import time
 import requests
+from requests.exceptions import HTTPError
 
 remote_yolu = "./storage/shared/Python/Updater/frpi/version/remote_version.json"
+rv_yolu = "./Updater/frpi/version/remote_version.json" # remote version yolu
+
 
 print(os.path.exists(remote_yolu))
 
@@ -26,7 +29,7 @@ path = os.path.join(yol, remote_file)
 
 #os.remove("Updater/frpi/version/remote_version.json")
 def check_internet():
-    url='http://www.google.com/'
+    url='https://raw.githubusercontent.com/faruk21/frpi/main/version/local_version.json'
     timeout=5
     try:
         _ = requests.get(url, timeout=timeout)
@@ -35,8 +38,18 @@ def check_internet():
         print("İnternet bağlantısı yok.")
     return False
     
-test = check_internet()
-print(test)
+connection = check_internet()
+print(connection)
+
+try:
+    r = requests.get('https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json')
+    r.raise_for_status()
+    os.system('wget  https://raw.githubusercontent.com/faruk21/frpi/main/version/remote_version.json -P ./Updater/frpi/version')
+except HTTPError:
+    print('Could not download page')
+else:
+    print('downloaded successfully')
+
 '''
 git_add = 'git add .'
 git_commit = "git commit -m 'a' "
@@ -83,3 +96,9 @@ os.system('cd')
                 else:
                     print("Program zaten güncel")
 '''
+#----------------------------------------------
+'''
+indirme
+remote ve local file okuma / remote - local file karşılaştırma / yok ise local file oluşturma / local file güncelleme 
+
+
