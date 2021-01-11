@@ -121,7 +121,7 @@ def file_rw():
                 #os.chdir('./Updater/frpi')
                 os.system(" git add . ")
                 os.system("git commit -m 'güncelleme' ")
-                os.sys("git pull --no-edit")
+                os.system("git pull --no-edit")
                 #os.system("git push ")
                 print('-----------------------------------------------------------------')
                 print(f'Güncelleme tamamlandı! version: {l_version}')
