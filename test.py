@@ -101,3 +101,5 @@ os.system('cd')
 indirme
 remote ve local file okuma / remote - local file karşılaştırma / yok ise local file oluşturma / local file güncelleme 
 '''
+
+#13:40 test yazısı iş yerinden
